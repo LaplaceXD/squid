@@ -8,4 +8,4 @@ USER squid
 
 EXPOSE 3128
 
-CMD ["squid", "-N", "-f", "/etc/squid/squid.conf"]
+CMD ["sh", "-c", "set -eu; umask 077; printf '%s\\n' \"${SQUID_PSSWRD:?SQUID_PSSWRD is required}\" > /tmp/squid-passwd; exec squid -N -f /etc/squid/squid.conf"]
