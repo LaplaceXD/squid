@@ -31,8 +31,8 @@ jobs:
 
           docker build --pull \
             --platform linux/amd64 \
-            --tag "${DOCKERHUB_USERNAME}/squid-proxy:${GITHUB_SHA}" \
-            --tag "${DOCKERHUB_USERNAME}/squid-proxy:latest" \
+            --tag "${DOCKERHUB_USERNAME}/squid:${GITHUB_SHA}" \
+            --tag "${DOCKERHUB_USERNAME}/squid:latest" \
             .
 
       - name: Push image
@@ -40,5 +40,5 @@ jobs:
         run: |
           set -euo pipefail
 
-          docker push "${DOCKERHUB_USERNAME}/squid-proxy:${GITHUB_SHA}"
-          docker push "${DOCKERHUB_USERNAME}/squid-proxy:latest"
+          docker push "${DOCKERHUB_USERNAME}/squid:${GITHUB_SHA}"
+          docker push "${DOCKERHUB_USERNAME}/squid:latest"
