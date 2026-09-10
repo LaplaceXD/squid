@@ -1,6 +1,7 @@
 FROM alpine:latest
 
-RUN apk add --no-cache squid apache2-utils
+RUN apk upgrade --no-cache \
+    && apk add --no-cache squid apache2-utils
 
 RUN touch /etc/squid/passwd \
     && chown squid:squid /etc/squid/passwd \
